@@ -18,7 +18,7 @@ class Color:
 
 def get_logger(name: str) -> logging.Logger:
     logger = logging.getLogger(name)
-    if not logger.hasHandlers():
+    if not logger.handlers:
         handler = logging.StreamHandler()
         formatter = logging.Formatter(
             f"{Color.WHITE}%(asctime)s {Color.YELLOW}%(name)s"
