@@ -2,7 +2,7 @@ import time
 from logging import Logger
 from typing import Any, Optional
 
-from logger import Color, get_logger
+from .logger import Color, get_logger
 
 
 class Timer:
