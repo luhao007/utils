@@ -1,0 +1,7 @@
+# pyproject.toml
+[project]
+name = "utils"
+dynamic = ["version"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
