@@ -1,6 +1,6 @@
 import time
 from logging import Logger
-from typing import Optional
+from typing import Any, Optional
 
 from logger import Color, get_logger
 
@@ -17,7 +17,7 @@ class Timer:
         self.start = time.time()
         self.logger.info(f"{Color.CYAN}%s... {Color.RESET}", self.prefix)
 
-    def __exit__(self):
+    def __exit__(self, *args: Any):
         used = time.time() - self.start
         self.logger.info(
             f"{Color.CYAN}%s {Color.WHITE}done. Used:"
