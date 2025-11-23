@@ -1,3 +1,2 @@
-import os
-
-__path__.insert(0, os.path.join(os.path.dirname(__file__), "src"))
+from .src.logger import get_logger  # type: ignore
+from .src.timer import Timer  # type: ignore

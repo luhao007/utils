@@ -8,7 +8,7 @@ from .logger import Color, get_logger
 class Timer:
     """Calculating the time"""
 
-    def __init__(self, logger: Optional[Logger] = None, prefix: str = ""):
+    def __init__(self, prefix: str = "", logger: Optional[Logger] = None):
         self.logger = logger or get_logger("Timer")
         self.prefix = prefix
         self.start = -1
