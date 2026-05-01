@@ -17,7 +17,18 @@ class Color:
 
 
 def get_logger(name: str) -> logging.Logger:
+    """
+    Get a logger with nice color formatting.
+
+    Args:
+        name: Logger name (typically __name__)
+
+    Returns:
+        A configured logger with color formatting
+    """
     logger = logging.getLogger(name)
+
+    # Only add handler if this logger doesn't have one
     if not logger.handlers:
         handler = logging.StreamHandler()
         formatter = logging.Formatter(
@@ -26,5 +37,11 @@ def get_logger(name: str) -> logging.Logger:
         )
         handler.setFormatter(formatter)
         logger.addHandler(handler)
+
+    # Inherit level from root logger if it's set
+    root_logger = logging.getLogger()
+    if root_logger.level != logging.NOTSET:
+        logger.setLevel(root_logger.level)
+
     logger.propagate = False
     return logger
